@@ -3,7 +3,7 @@ node {
     checkout scm 
 } 
   stage('========== Build image ==========') { 
-    app = docker.build("jenkins-docker-pipeline/my-image") 
+    app = docker.build("koomzc/koo") 
 } 
   stage('========== Push image ==========') { 
     docker.withRegistry('YOUR_REGISTRY', 'YOUR_CREDENTIAL') { 
