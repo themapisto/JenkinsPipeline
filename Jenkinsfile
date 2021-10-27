@@ -1,3 +1,6 @@
+
+
+
 node { 
   stage('========== Clone repository ==========') { 
     checkout scm 
@@ -6,7 +9,7 @@ node {
     app = docker.build("koomzc/koo") 
 } 
   stage('========== Push image ==========') { 
-    docker.withRegistry('YOUR_REGISTRY', 'YOUR_CREDENTIAL') { 
+    docker.withRegistry('', 'koomzc') { 
       app.push("${env.BUILD_NUMBER}") 
       app.push("latest") 
     } 
