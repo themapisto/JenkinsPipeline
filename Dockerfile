@@ -1,8 +1,8 @@
-FROM ubuntu:18.04
-RUN ln -sf /usr/share/zoneinfo/Asia/Seoul /etc/localtime
-RUN apt upgrade -y
-RUN apt-get update -y
-RUN apt-get install nginx -y
-RUN echo "daemon off;" >> /etc/nginx/nginx.conf
+FROM ubuntu:16.04
+COPY sources.list /etc/apt/sources.list
+RUN apt update && \
+  apt install python3 python3-pip wget vim openssh-server curl dnsutils -y && \
+  apt clean autoclean && \
+  apt autoremove --yes
 
-CMD ["nginx"]
+RUN pip3 install awscli --upgrade
