@@ -6,7 +6,7 @@ node {
     checkout scm 
 } 
   stage('========== Build image ==========') { 
-    app = docker.build("koomzc/${env.IMAGE_NAME}") 
+    app = docker.build("koomzc2/${env.IMAGE_NAME}") 
 } 
   stage('========== Push image ==========') { 
     docker.withRegistry('http://localhost:80', 'harbor') { 
