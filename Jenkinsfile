@@ -9,7 +9,7 @@ node {
     app = docker.build("koomzc2/${env.IMAGE_NAME}") 
 } 
   stage('========== Push image ==========') { 
-    docker.withRegistry('http://192.168.10.33', 'harbor') { 
+    docker.withRegistry('https://10.0.20.4', 'harbor') { 
       app.push("${env.BUILD_NUMBER}") 
       app.push("latest") 
     } 
