@@ -6,5 +6,7 @@ kubectl create secret generic regcred \
 
 
 2. 배포하는 test.yaml을 배포
-3. 
+3. git config 등록
+ubuntu@ip-10-0-0-238:~/Downloads/cicd/JenkinsPipeline$ git config credential.helper store
+ubuntu@ip-10-0-0-238:~/Downloads/cicd/JenkinsPipeline$ git config --global credential.helper 'cache --timeout 7200'
 
