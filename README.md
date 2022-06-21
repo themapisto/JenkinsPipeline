@@ -6,5 +6,6 @@ kubectl create secret generic regcred \
 
 
 2. 배포하는 test.yaml을 배포
-3. 
+3. git config 등록
+
 
