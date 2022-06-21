@@ -1,15 +1,15 @@
-##  🍎 iOS 커리큘럼
+##  🍎 CICD 파이프라인 만들기
 
-| Week | 세미나 | 과제 |커리큘럼 내용 |
+| Week | 작업 | 블로그 작성 |커리큘럼 내용 |
 | ------ | -- | -- |----------- |
-| 1주차 | ☑️ | ☑️ | iOS 기초, H.I.G를 통한 컴포넌트의 이해, 화면 전환 |
-| 2주차 | ☑️ | ☑️ | Autolayout을 통한 기초 UI구성, Scroll View의 이해 |
-| 3주차 | ☑️ | ☑️ | TableView, CollectionView, 데이터 전달 방식 |
-| 4주차 | ☑️ | ☑️ | Cocoapods & Networking + 솝커톤 전 보충 세미나 |
-| 5주차 |  |  |디자인 합동 세미나 |
-| 6주차 |  |  |서버 합동 세미나 + 솝커톤  |
-| 7주차 |  |  |클론 코딩을 통한 실전 UI 구성, Animation, 통신 보충  |
-| 8주차 |  |  |e기획 경선 + 앱잼 전 보충 세미나 + 앱스토어 배포 가이드  |
+| 1주차 | ☑️ | ☑️ | Harbor 구축 / Https 인증서 생성 및 확인  |
+| 2주차 | ☑️ | ☑️ | Jenkins 구축 |
+| 3주차 | ☑️ | ☑️ | Kubernetes 클러스터 구축 |
+| 4주차 | ☑️ | ☑️ | Harbor Jenkins 연동 |
+| 5주차 |  |  | Kubernetes Private Regisry 사용 방안 |
+| 6주차 |  |  | MSA 어플리케이션 만들어보기  |
+| 7주차 |  |  | Ingress 룰 만들어보기 |
+| 8주차 |  |  | Monitoring 및 로깅 대시보드 만들기 |
 
 
 1. docker secret을 쿠버네티스 secret으로 등록
