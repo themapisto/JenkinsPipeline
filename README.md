@@ -11,8 +11,14 @@
 | 7주차 |  |  | Ingress 룰 만들어보기 |
 | 8주차 |  |  | Monitoring 및 로깅 대시보드 만들기 |
 
+# 1주차
+## 1-1. Harbor 구축
 
-1. docker secret을 쿠버네티스 secret으로 등록
+
+
+
+
+# 별첨 docker secret을 쿠버네티스 secret으로 등록
 
 ```
 $ kubectl create secret generic regcred \
@@ -21,7 +27,5 @@ $ kubectl create secret generic regcred \
 
 ```
 
-2. 배포하는 test.yaml을 배포
-3. git config 등록
 
 
