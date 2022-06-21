@@ -1,1 +1,10 @@
-### helloaaa
+apiVersion: v1
+kind: Pod
+metadata:
+  name: private-reg
+spec:
+  containers:
+  - name: private-reg-container
+    image: harbor.aikoo.net/tanzu/nginx:1
+  imagePullSecrets:
+  - name: regcred
