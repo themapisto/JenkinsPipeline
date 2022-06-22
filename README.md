@@ -18,7 +18,7 @@
 
 
 
-# 별첨 docker secret을 쿠버네티스 secret으로 등록
+### 별첨.  docker secret을 쿠버네티스 secret으로 등록
 
 ```
 $ kubectl create secret generic regcred \
@@ -32,7 +32,7 @@ $ kubectl create secret generic regcred \
 $ sudo apt install awscli
 
 ```
-### 1-1.2. aws cp
+### . aws cp
 ```
 $ aws s3 cp harbor-setup.sh s3://tas-koo/koo/
 
