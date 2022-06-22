@@ -14,8 +14,8 @@
 # 1주차
 ## 1-1. Harbor 구축
 ```
-$ wget https://tas-koo.s3.ap-northeast-1.amazonaws.com/koo/harbor-setup.sh
-$ sh harbor-setup.sh
+wget https://tas-koo.s3.ap-northeast-1.amazonaws.com/koo/harbor-setup.sh
+sh harbor-setup.sh
 
 ```
 ## 1.2. harbor.yml 수정 : domain name, CA cert path 수정
