@@ -13,7 +13,11 @@
 
 # 1주차
 ## 1-1. Harbor 구축
+```
+$ wget https://tas-koo.s3.ap-northeast-1.amazonaws.com/koo/harbor-setup.sh
+$ sh harbor-setup.sh
 
+```
 
 
 
