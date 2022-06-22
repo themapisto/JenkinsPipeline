@@ -13,16 +13,7 @@
 
 # 1주차
 ## 1-1. Harbor 구축
-### 1-1-1. aws cli 설치
-```
-$ sudo apt install awscli
 
-```
-### 1-1.2. aws cp
-```
-$ aws s3 cp harbor-setup.sh s3://tas-koo/koo/
-
-```
 
 
 
@@ -33,6 +24,17 @@ $ aws s3 cp harbor-setup.sh s3://tas-koo/koo/
 $ kubectl create secret generic regcred \
 --from-file=.dockerconfigjson=/home/ubuntu/.docker/config.json \
 --type=kubernetes.io/dockerconfigjson
+
+```
+
+### 별첨. aws cli 설치
+```
+$ sudo apt install awscli
+
+```
+### 1-1.2. aws cp
+```
+$ aws s3 cp harbor-setup.sh s3://tas-koo/koo/
 
 ```
 
