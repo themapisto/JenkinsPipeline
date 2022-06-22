@@ -20,7 +20,7 @@ $ sudo apt install awscli
 ```
 ### 1-1.2. aws cp
 ```
-$  aws s3 cp harbor-setup.sh s3://tas-koo/koo/
+$ aws s3 cp harbor-setup.sh s3://tas-koo/koo/
 
 ```
 
