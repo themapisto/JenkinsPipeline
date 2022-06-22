@@ -13,8 +13,8 @@
 
 # 1주차
 ## 1-1. Harbor 구축
-### aws cli 설치
-### aws cp 
+### 1-1-1. aws cli 설치
+### 1-1.2. aws cp 
 $  aws s3 cp harbor-setup.sh s3://tas-koo/koo/
 
 
