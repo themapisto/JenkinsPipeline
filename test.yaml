@@ -4,5 +4,5 @@ metadata:
   name: private-reg
 spec:
   containers:
-  - name: private-reg-container
-    image: harbor.taskoo.net/tanzu/nginx:1
+  - name: private-pod
+    image: nginx
