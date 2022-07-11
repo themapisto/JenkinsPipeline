@@ -7,6 +7,7 @@ node {
 } 
   stage('========== Build image ==========') { 
         kubernetesDeploy configs: "test.yaml", kubeconfigId: 'Kubeconfig'
+        sh "kubectl apply -f test.yaml"
 }
  
   } 
