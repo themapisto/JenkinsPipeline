@@ -5,6 +5,4 @@ metadata:
 spec:
   containers:
   - name: private-reg-container
-    image: harbor.aikoo.net/tanzu/nginx:1
-  imagePullSecrets:
-  - name: regcred
+    image: harbor.taskoo.net/tanzu/nginx:1
