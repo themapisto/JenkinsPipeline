@@ -6,7 +6,7 @@ node {
     checkout scm 
 } 
   stage('========== Build image ==========') { 
-        kubernetesDeploy configs: "test.yaml", kubeconfigId: 'kube'
+        kubernetesDeploy configs: "test.yaml", kubeconfigId: 'Kubeconfig'
 }
  
   } 
