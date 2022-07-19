@@ -26,8 +26,9 @@ sh harbor-setup.sh
 
 
 ## 1.2. harbor 사설인증서 sign
+```
 wget https://tas-koo.s3.ap-northeast-1.amazonaws.com/koo/harbor-cert-shell.zip
-
+```
 
 
 
