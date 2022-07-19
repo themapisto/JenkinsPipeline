@@ -15,10 +15,15 @@
 ## 1-1. Harbor 구축
 ```
 wget https://tas-koo.s3.ap-northeast-1.amazonaws.com/koo/harbor-setup.sh
+
+해당 shell은 harbor 설치 후 harbor config까지 바꿔줌
+
 sh harbor-setup.sh
 
 ```
 ## 1.2. harbor.yml 수정 : domain name, CA cert path 수정
+
+## 1.3. harbor 사설인증서 sign
 
 
 
