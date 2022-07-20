@@ -33,6 +33,8 @@ wget https://tas-koo.s3.ap-northeast-1.amazonaws.com/koo/harbor-cert-shell.zip
 
 ## 1.3. docker pull, tag, push
 ```
+ubuntu@ip-172-31-16-109:~$ docker tag nginx harbor.aikoo.net/tanzu/nginx:1
+ubuntu@ip-172-31-16-109:~$ docker push harbor.aikoo.net/tanzu/nginx:1
 
 ```
 
