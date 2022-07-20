@@ -6,3 +6,5 @@ spec:
   containers:
   - name: private-pod
     image: harbor.aikoo.net/tanzu/nginx:1
+  imagePullSecrets:
+  - name: testkoo
