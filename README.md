@@ -15,12 +15,28 @@
 ## 1-1. Harbor 구축
 ```
 wget https://tas-koo.s3.ap-northeast-1.amazonaws.com/koo/harbor-setup.sh
+
+해당 shell은 harbor 설치 후 harbor config까지 바꿔줌
+- harbor.yml 수정 : domain name, CA cert path 수정
+
+
 sh harbor-setup.sh
 
 ```
-## 1.2. harbor.yml 수정 : domain name, CA cert path 수정
 
 
+## 1.2. harbor 사설인증서 sign
+```
+wget https://tas-koo.s3.ap-northeast-1.amazonaws.com/koo/harbor-cert-shell.zip
+해당 zip파일은 harbor 사설 인증서를 openssl을 이용해 만드는 shellscript이다.
+```
+
+## 1.3. docker pull, tag, push
+```
+ubuntu@ip-172-31-16-109:~$ docker tag nginx harbor.aikoo.net/tanzu/nginx:1
+ubuntu@ip-172-31-16-109:~$ docker push harbor.aikoo.net/tanzu/nginx:1
+
+```
 
 
 
