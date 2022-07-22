@@ -56,10 +56,10 @@ $ kubectl create secret generic testkoo \
 $ sudo apt install awscli
 
 ```
-### . aws cp
+### 별첨. aws s3에 업로드, 다운로드
 ```
-$ aws s3 cp harbor-setup.sh s3://tas-koo/koo/
-
+$ aws s3 cp harbor-setup.sh s3://tas-koo/koo/ ( 업로드 )
+$ wget https://tas-koo.s3.ap-northeast-1.amazonaws.com/koo/harbor-setup.sh ( 다운로드 )
 ```
 
 
