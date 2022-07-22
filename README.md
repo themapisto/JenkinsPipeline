@@ -6,12 +6,12 @@
 | 2주차 | ☑️ | ☑️ | Jenkins 구축 |
 | 3주차 | ☑️ | ☑️ | Kubernetes 클러스터 구축 |
 | 4주차 | ☑️ | ☑️ | Harbor Jenkins 연동 |
-| 5주차 |  |  | Kubernetes Private Regisry 사용 방안 |
+| 5주차 | ☑️ | ☑️  | Kubernetes Private Regisry 사용 방안 |
 | 6주차 |  |  | MSA 어플리케이션 만들어보기  |
 | 7주차 |  |  | Ingress 룰 만들어보기 |
 | 8주차 |  |  | Monitoring 및 로깅 대시보드 만들기 |
 
-# 1주차
+@ 1주차
 ## 1-1. Harbor 구축
 ```
 wget https://tas-koo.s3.ap-northeast-1.amazonaws.com/koo/harbor-setup.sh
@@ -24,7 +24,7 @@ sh harbor-setup.sh
 
 ```
 
-
+@ 2주차
 ## 1.2. harbor 사설인증서 sign
 ```
 wget https://tas-koo.s3.ap-northeast-1.amazonaws.com/koo/harbor-cert-shell.zip
