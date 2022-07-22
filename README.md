@@ -28,7 +28,9 @@ sh harbor-setup.sh
 ## 1.2. harbor 사설인증서 sign
 ```
 wget https://tas-koo.s3.ap-northeast-1.amazonaws.com/koo/harbor-cert-shell.zip
+
 # 해당 zip파일은 harbor 사설 인증서를 openssl을 이용해 만드는 shellscript이다.
+
 ```
 
 ## 1.3. docker pull, tag, push
