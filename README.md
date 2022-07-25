@@ -42,7 +42,7 @@ ubuntu@ip-172-31-16-109:~$ docker push harbor.aikoo.net/tanzu/nginx:1
 
 
 
-### 별첨.  docker secret을 쿠버네티스 secret으로 등록
+## 별첨.  docker secret을 쿠버네티스 secret으로 등록
 
 ```
 $ kubectl create secret generic testkoo \
