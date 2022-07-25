@@ -42,7 +42,7 @@ ubuntu@ip-172-31-16-109:~$ docker push harbor.aikoo.net/tanzu/nginx:1
 
 
 
-### 별첨.  docker secret을 쿠버네티스 secret으로 등록
+## 별첨.  docker secret을 쿠버네티스 secret으로 등록
 
 ```
 $ kubectl create secret generic testkoo \
@@ -51,15 +51,15 @@ $ kubectl create secret generic testkoo \
 
 ```
 
-### 별첨. aws cli 설치
-## aws configure 을 통해 IAM 계정을 연동한다
+## 별첨. aws cli 설치
+### aws configure 을 통해 IAM 계정을 연동한다
 ```
 $ sudo apt install awscli
 $ aws configure
 $ aws eks update-kubeconfig --region us-east-2 --name education-eks-IKJITuQB
  
 ```
-### kubectl 설치 
+## 별첨. kubectl 설치 
 ```
    $  curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.23.6/bin/linux/amd64/kubectl
    $  chmod +x ./kubectl
@@ -67,7 +67,7 @@ $ aws eks update-kubeconfig --region us-east-2 --name education-eks-IKJITuQB
 ```
 
 
-### 별첨. aws s3에 업로드, 다운로드
+## 별첨. aws s3에 업로드, 다운로드
 ```
 $ aws s3 cp harbor-setup.sh s3://tas-koo/koo/ ( 업로드 )
 $ wget https://tas-koo.s3.ap-northeast-1.amazonaws.com/koo/harbor-setup.sh ( 다운로드 )
