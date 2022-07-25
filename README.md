@@ -52,10 +52,10 @@ $ kubectl create secret generic testkoo \
 ```
 
 ### 별첨. aws cli 설치
+## aws configure 을 통해 IAM 계정을 연동한다
 ```
 $ sudo apt install awscli
 $ aws configure
-# aws configure 을 통해 IAM 계정을 연동한다
 $ aws eks update-kubeconfig --region us-east-2 --name education-eks-IKJITuQB
  
 ```
