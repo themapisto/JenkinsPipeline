@@ -54,8 +54,19 @@ $ kubectl create secret generic testkoo \
 ### 별첨. aws cli 설치
 ```
 $ sudo apt install awscli
-
+$ aws configure
+# aws configure 을 통해 IAM 계정을 연동한다
+$ aws eks update-kubeconfig --region us-east-2 --name education-eks-IKJITuQB
+ 
 ```
+### kubectl 설치 
+```
+   $  curl -LO https://storage.googleapis.com/kubernetes-release/release/v1.23.6/bin/linux/amd64/kubectl
+   $  chmod +x ./kubectl
+   $  sudo mv ./kubectl /usr/local/bin/kubectl
+```
+
+
 ### 별첨. aws s3에 업로드, 다운로드
 ```
 $ aws s3 cp harbor-setup.sh s3://tas-koo/koo/ ( 업로드 )
