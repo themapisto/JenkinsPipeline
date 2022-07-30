@@ -10,6 +10,7 @@
 ## 1. Cluster 구성의 Redis 생성
 ```
 $ kubectl create ns harbor
+$ sudo snap install helm --classic
 $ helm repo add bitnami https://charts.bitnami.com/bitnami
 $ helm repo update
 
@@ -57,11 +58,17 @@ updateJob:
 # Reids Sentinal Install
 # sentinel.downAfterMilliseconds=5000 <<< 조금 더 빠르게 Master의 Down을 감지 할 경우 설정 변경 필요, Default 60s
 $ helm upgrade --install redis . --namespace harbor \
---set global.storageClass=koo \
+--set global.storageClass=gp2 \
 --set sentinel.enabled=true \
 --set global.redis.password="1q2w3e4r5t" \
 --set auth.sentinel=false \
 -f values.yaml,affinity-values.yaml
+
+삭제 방법
+$ helm delete redis -n harbor
+
+
+
 
 # Pod 형상 확인
 $ kubectl -n harbor get pods
