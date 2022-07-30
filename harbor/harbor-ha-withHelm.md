@@ -1,4 +1,4 @@
-# harbor-ha provision with Helm
+# 2.harbor-ha provision with Helm
 
 ## Prerequisites
 - High available ingress controller
