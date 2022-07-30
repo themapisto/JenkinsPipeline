@@ -57,7 +57,7 @@ updateJob:
 # Reids Sentinal Install
 # sentinel.downAfterMilliseconds=5000 <<< 조금 더 빠르게 Master의 Down을 감지 할 경우 설정 변경 필요, Default 60s
 $ helm upgrade --install redis . --namespace harbor \
---set global.storageClass=ceph-filesystem \
+--set global.storageClass=koo \
 --set sentinel.enabled=true \
 --set global.redis.password="1q2w3e4r5t" \
 --set auth.sentinel=false \
