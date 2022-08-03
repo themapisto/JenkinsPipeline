@@ -65,22 +65,22 @@ persistence:
 
   persistentVolumeClaim:
     registry:
-      storageClass: "nfs-standard" 
+      storageClass: "aws-sc-ebs" 
       subPath: ""
       accessMode: ReadWriteOnce
       size: 5Gi
     jobservice:
-      storageClass: "nfs-standard" 
+      storageClass: "aws-sc-ebs" 
       subPath: ""
       accessMode: ReadWriteOnce
       size: 1Gi
     chartmuseum:
-      storageClass: "nfs-standard" 
+      storageClass: "aws-sc-ebs" 
       subPath: ""
       accessMode: ReadWriteOnce
       size: 5Gi
     trivy:
-      storageClass: "nfs-standard" 
+      storageClass: "aws-sc-ebs" 
       accessMode: ReadWriteOnce
       size: 5Gi
 ```      
