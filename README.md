@@ -3,12 +3,20 @@
 | Week | 작업 |블로그|커리큘럼 내용 |
 | ------ | -- | -- |----------- |
 | 1주차 | ☑️ | ☑️ | Harbor 구축 / Https 인증서 생성 및 확인  |
-| 2주차 | ☑️ | ☑️ | Jenkins 구축 |
-| 3주차 | ☑️ | ☑️ | Kubernetes 클러스터 구축 |
-| 4주차 | ☑️ | ☑️ | Harbor Jenkins 연동 |
-| 5주차 | ☑️ | ☑️  | Kubernetes Private Regisry 사용 방안 |
-| 6주차 |  |  | MSA 어플리케이션 만들어보기  |
-| 7주차 |  |  | Ingress 룰 만들어보기 |
-| 8주차 |  |  | Monitoring 및 로깅 대시보드 만들기 |
+| 2주차 | ☑️ | ☑️ | Harbor HA (helm) 설치 |
+| 3주차 | ☑️ | ☑️ | Rancher with Harbor 테스트|
+| 4주차 | ☑️ | ☑️ | Helm Deep dive |
 
 
+
+### 1.git clone
+### 2.script 돌리기 ansible 설치 및 Galaxy role 업데이트
+### 3.source /opt/deepops/env/bin/activate ( 파이썬 가상환경 들어가기 )
+### 4./config/inventory 수정 ( cluster 구성 master,worker ip set )
+- config.example -> config로 변경
+### 5. 실행 명령
+```
+$ ansible-playbook -l k8s-cluster playbooks/k8s-cluster.yml
+```
+- issue 01. master01 >= 앤서블 호스트 (memory)
+- issue 02. private key 있을경우 주석처리
