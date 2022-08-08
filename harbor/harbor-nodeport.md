@@ -29,6 +29,11 @@ spec:
 - 1) helm 설치
 - 2) helm chart registry 추가
 - 3) harbor chart 설정 파일 다운로드 및 수정
+```
+$ mkdir -p ~/install/harbor-k8s && cd ~/install/harbor-k8s
+$ helm inspect values bitnami/harbor > values.yaml
+$ vi values.yaml
+```
 
 ## 2. Harbor 설치 전 config ( values.yaml 수정 )
 ```
