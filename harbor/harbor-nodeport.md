@@ -1,6 +1,6 @@
 # 절차 : Helm 설치를 통한 Harbor 노드포트 구성
 ## 1. 요구조건
-- StorageClass와 PVC 연동을 통한 Dynamic Provisioning Storage 세팅
+### 1-1. StorageClass와 PVC 연동을 통한 Dynamic Provisioning Storage 세팅
 
 ```
 apiVersion: storage.k8s.io/v1
@@ -26,9 +26,14 @@ spec:
       storage: 5Gi
   storageClassName: aws-sc-ebs
 ```
-- 1) helm 설치
-- 2) helm chart registry 추가
-- 3) harbor chart 설정 파일 다운로드 및 수정
+### 1-2. helm 설치
+### 1-3. helm chart registry 추가
+### 1-4. harbor chart 설정 파일 다운로드 및 수정
+```
+$ mkdir -p ~/install/harbor-k8s && cd ~/install/harbor-k8s
+$ helm inspect values bitnami/harbor > values.yaml
+$ vi values.yaml
+```
 
 ## 2. Harbor 설치 전 config ( values.yaml 수정 )
 ```
