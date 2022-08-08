@@ -93,3 +93,30 @@ helm install harbor -f values.yaml bitnami/harbor -n harbor
 helm upgrade harbor -f values.yaml bitnami/harbor -n harbor
 
 ```
+
+## 4. containerd insecure_registry 옵션 설정
+### 4-1. /etc/containerd/config.toml 파일 수정
+```
+[root@node1 ~]# cat /etc/containerd/config.toml
+# 다른 설정들과 동일하게 containerd도 /etc/ 밑에 설정 파일이 있다.
+[plugins.cri.registry]
+[plugins.cri.registry.mirrors]
+[plugins.cri.registry.mirrors."docker.io"]
+  endpoint = ["https://mirror.gcr.io","https://registry-1.docker.io","https://harbor.spk.io"]
+[plugins.cri.registry.configs."harbor.spk.io".tls]
+  insecure_skip_verify = true
+# mirrors 설정은 굳이 필요 없기는 하다. 도커 허브(docker.io) 이미지를 2번째 pull 부터는 내부 private registry 에서 가져오겠다는 설정이다.
+
+```
+### 4-2. containerd 재시작
+```
+[root@node1 ~]# systemctl restart containerd
+```
+
+### 4-3. 검증
+```
+$ crictl pull harbor.aikoo.net/tanzu/nginx:0.1
+$ crictl images
+
+```
+
