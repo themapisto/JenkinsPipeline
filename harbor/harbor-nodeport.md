@@ -1,6 +1,8 @@
 # 절차 : Helm 설치를 통한 Harbor 노드포트 구성
 ## 1. 요구조건
 ### 1-1. StorageClass와 PVC 연동을 통한 Dynamic Provisioning Storage 세팅
+https://lapee79.github.io/article/use-a-local-disk-by-local-volume-static-provisioner-in-kubernetes/
+
 
 ```
 apiVersion: storage.k8s.io/v1
