@@ -18,5 +18,13 @@ $ ./deepops/scripts/setup.sh
 $ ansible-playbook -l k8s-cluster playbooks/k8s-cluster.yml
 ```
 - issue 01. master01 >= 앤서블 호스트 (memory)
-- issue 02. private key 있을경우 주석처리
+- issue 02. private key 있을경우 주석처리 (deepops/playbooks/bootstrap/bootsrap-ssh.yml)
+```
 
+    - name: Add SSH public key to ansible user authorized keys
+      authorized_key:
+        user: "{{ ansible_env.SUDO_USER | default(ansible_env.USER) }}"
+        state: present
+        key: "{{ lookup('file', private_key + '.pub') }}"
+      tags: ssh-public
+```
