@@ -1,9 +1,13 @@
 # 절차 : Helm 설치를 통한 Harbor 노드포트 구성
 ## 1. 요구조건
 ### 1-1. StorageClass와 PVC 연동을 통한 Dynamic Provisioning Storage 세팅
-https://lapee79.github.io/article/use-a-local-disk-by-local-volume-static-provisioner-in-kubernetes/
+
 
 ### 1-1-1. aws-ebs를 storageclass로 선언할 경우
+- https://happycloud-lee.tistory.com/165
+- https://jwher.github.io/posts/install-harbor/
+
+
 ```
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
@@ -29,7 +33,7 @@ spec:
   storageClassName: aws-sc-ebs
 ```
 ### 1-1-2. local Storage를 수동으로 PV 생성하여 구성할경우
-
+https://lapee79.github.io/article/use-a-local-disk-by-local-volume-static-provisioner-in-kubernetes/
 - pv 를 4(4개 만들어줘야함)
 - 각 노드별 공유 directory 생성
 
