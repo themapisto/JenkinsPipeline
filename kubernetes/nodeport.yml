@@ -1,0 +1,36 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2022-08-10T06:16:33Z"
+    labels:
+      app: nginx
+    name: nginx-deployment
+    namespace: bc
+    resourceVersion: "1529678"
+    uid: 19dbb15d-ac15-4ce1-b0fb-21b531f38362
+  spec:
+    clusterIP: 10.233.13.204
+    clusterIPs:
+    - 10.233.13.204
+    externalTrafficPolicy: Cluster
+    internalTrafficPolicy: Cluster
+    ipFamilies:
+    - IPv4
+    ipFamilyPolicy: SingleStack
+    ports:
+    - nodePort: 30718
+      port: 8080
+      protocol: TCP
+      targetPort: 80
+    selector:
+      app: nginx
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""
