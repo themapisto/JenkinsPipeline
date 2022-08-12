@@ -158,7 +158,7 @@ helm upgrade harbor -f values.yaml bitnami/harbor -n harbor
 
 ```
 
-## 4. containerd insecure_registry 옵션 설정
+## 4. containerd insecure_registry 사용 방법
 ### 4-1. /etc/containerd/config.toml 파일 수정
 ```
 [root@node1 ~]# cat /etc/containerd/config.toml
