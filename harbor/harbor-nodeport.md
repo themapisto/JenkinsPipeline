@@ -181,6 +181,71 @@ helm upgrade harbor -f values.yaml bitnami/harbor -n harbor
 ```
 $ crictl pull harbor.aikoo.net/tanzu/nginx:0.1
 $ crictl images
+Prerequisites
+- Kubernetes cluster 1.10+
+- Helm 2.8.0+
+- 헬름으로 배포하면 여러 pvc가 생성되며, 약 16GB 정도의 pv를 생성할 수 있어야함
+
+helm repo add bitnami https://charts.bitnami.com/bitnami
+
+mkdir -p ~/install/harbor-k8s && cd ~/install/harbor-k8s
+helm inspect values bitnami/harbor > values.yaml
+vi values.yaml
+
+values.yaml에서 값 변경
+- externalURL: https://core.harbor.domain:30300
+- harborAdminPassword: "        "
+- type: NodePort
+- nodePorts: http 30301, https 30300
+- persistentVolumeClaim의 storageClass: "        "
+
+kubectl create ns harbor
+  
+helm install harbor -f values.yaml bitnami/harbor -n harbor
+
+harbor service https(443) 노드포트로 접속
+- ID: admin
+- PW: values.yaml 파일 참고
+
+
+
+# 컨테이너 런타임 도커 사용시
+참고 https://krksap.tistory.com/1919
+
+harbor 프로젝트 생성 
+
+vi /etc/hosts
+- 서버 주소 core.harbor.domain
+
+vi /etc/docker/daemon.json
+- {
+  "insecure-registries": ["core.harbor.domain:30003"]
+}
+
+systemctl restart docker 
+
+docker login -u admin core.harbor.domain:30003
+docker build -t core.harbor.domain:30003/프로젝트명/이미지명:태그 .
+docker push core.harbor.domain:30003/프로젝트명/이미지명:태그
+
+
+#### 컨테이너 런타임 containerd 사용시 
+
+http 사용을 위한 insecure 설정
+containerd config.toml 내용 추가
+
+[plugins."io.containerd.grpc.v1.cri".registry.mirrors."core.harbor.domain:30300"]
+  endpoint = ["https://core.harbor.domain:30003"]
+
+[plugins."io.containerd.grpc.v1.cri".registry.configs."core.harbor.domain:30300".tls]
+  insecure_skip_verify = true
+
+[plugins."io.containerd.grpc.v1.cri".registry.configs."core.harbor.domain:30300".auth]
+  username = "admin"
+  password = "         "
+
+systemctl restart containerd
+
 
 ```
 
