@@ -231,6 +231,9 @@ docker build -t core.harbor.domain:30003/프로젝트명/이미지명:태그 .
 docker push core.harbor.domain:30003/프로젝트명/이미지명:태그
 
 
+
+
+
 #### 컨테이너 런타임 containerd 사용시 
 
 http 사용을 위한 insecure 설정
@@ -250,4 +253,8 @@ systemctl restart containerd
 
 
 ```
+
+### 4-4 crictl image pull/tag/push
+
+### 4-5 kubernetes pod via private registry
 
