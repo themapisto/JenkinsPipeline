@@ -163,14 +163,13 @@ helm upgrade harbor -f values.yaml bitnami/harbor -n harbor
 ```
 [root@node1 ~]# cat /etc/containerd/config.toml
 # 다른 설정들과 동일하게 containerd도 /etc/ 밑에 설정 파일이 있다.
-[plugins.cri.registry]
-[plugins.cri.registry.mirrors]
-[plugins.cri.registry.mirrors."docker.io"]
-  endpoint = ["https://mirror.gcr.io","https://registry-1.docker.io","https://harbor.spk.io"]
-[plugins.cri.registry.configs."harbor.spk.io".tls]
-  insecure_skip_verify = true
-# mirrors 설정은 굳이 필요 없기는 하다. 도커 허브(docker.io) 이미지를 2번째 pull 부터는 내부 private registry 에서 가져오겠다는 설정이다.
 
+[plugins.cri.registry.configs."core.harbor.domain:32120".tls]
+  insecure_skip_verify = true
+
+[plugins.cri.registry.configs."core.harbor.domain:32120".auth]
+   username = "admin"
+   password = "VMware1!"
 ```
 ### 4-2. containerd 재시작
 ```
