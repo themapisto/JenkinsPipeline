@@ -179,8 +179,11 @@ helm upgrade harbor -f values.yaml bitnami/harbor -n harbor
 
 ### 4-3. 검증
 ```
-$ crictl pull harbor.aikoo.net/tanzu/nginx:0.1
-$ crictl images
+$ helm delete harbor -n harbor
+$ kubectl delete pvc --all -n harbor
+$ helm install harbor -f values.yaml bitnami/harbor -n harbor
+
+
 Prerequisites
 - Kubernetes cluster 1.10+
 - Helm 2.8.0+
