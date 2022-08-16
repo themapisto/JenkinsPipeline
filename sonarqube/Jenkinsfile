@@ -4,7 +4,7 @@ node {
   }
   stage('SonarQube Analysis') {
     withSonarQubeEnv() {
-      sh "./spring-music/gradlew sonarqube"
+      sh ".gradlew sonarqube"
     }
   }
 }
