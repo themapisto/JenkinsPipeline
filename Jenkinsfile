@@ -6,10 +6,10 @@ node {
     checkout scm 
 } 
   stage('========== Build image ==========') { 
-    app = docker.build("koomzc2/${env.IMAGE_NAME}") 
+    app = docker.build("tanzu/${env.IMAGE_NAME}") 
 } 
   stage('========== Push image ==========') { 
-    docker.withRegistry('https://harbor01.mzc.local', 'harbor') { 
+    docker.withRegistry('https://18.179.50.58:32120', 'harbor') { 
       app.push("${env.BUILD_NUMBER}") 
       app.push("latest") 
 }
