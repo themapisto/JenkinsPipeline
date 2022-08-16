@@ -13,6 +13,17 @@ node {
       app.push("${env.BUILD_NUMBER}") 
       app.push("latest") 
 }
+
+    stage('Kubernetes deploy') {
+        kubernetesDeploy configs: "test_koo.yaml", kubeconfigId: 'kubeconfig'
+        sh "kubectl apply -f test_koo.yaml"
+    }
+
+    stage('Complete') {
+        sh "echo 'The end'"
+    }
+
+
  
   } 
 }
