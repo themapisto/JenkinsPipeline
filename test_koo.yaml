@@ -5,6 +5,4 @@ metadata:
 spec:
   containers:
   - name: private-pod
-    image: harbor.aikoo.net/tanzu/nginx:1
-  imagePullSecrets:
-  - name: testkoo
+    image: core.harbor.domain:32120/tanzu/nginx:1

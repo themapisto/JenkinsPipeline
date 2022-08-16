@@ -4,17 +4,16 @@
 node { 
   stage('========== Clone repository ==========') { 
     checkout scm 
-}
-  environment {
-    AWS_ACCESS_KEY_ID = credentials('awsAccessKeyID')
-    AWS_SECRET_ACCESS_KEY = credentials('awsSecretAccessKey')
-    AWS_DEFAULT_REGION = 'us-east-2'
-  }
-
+} 
   stage('========== Build image ==========') { 
-        kubernetesDeploy configs: "test.yaml", kubeconfigId: 'Kubeconfig'
-        sh "kubectl apply -f test.yaml"
+    app = docker.build("koomzc2/${env.IMAGE_NAME}") 
+} 
+  stage('========== Push image ==========') { 
+    docker.withRegistry('https://harbor01.mzc.local', 'harbor') { 
+      app.push("${env.BUILD_NUMBER}") 
+      app.push("latest") 
 }
  
   } 
+}
 
