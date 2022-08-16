@@ -5,6 +5,14 @@ node {
   stage('========== Clone repository ==========') { 
     checkout scm 
 } 
+
+  stage('SonarQube Analysis') {
+    def mvn = tool 'Default Maven';
+    withSonarQubeEnv() {
+      sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=Koo"
+    }
+  }
+
   stage('========== Build image ==========') { 
     app = docker.build("tanzu/${env.IMAGE_NAME}") 
 } 
