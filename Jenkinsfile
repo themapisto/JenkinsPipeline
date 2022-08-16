@@ -6,12 +6,12 @@ node {
     checkout scm 
 } 
 
-  stage('SonarQube Analysis') {
-    def mvn = tool 'Devops';
-    withSonarQubeEnv() {
-      sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=Koo"
-    }
-  }
+#  stage('SonarQube Analysis') {
+#    def mvn = tool 'Devops'
+#    withSonarQubeEnv() {
+#      sh "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=Koo"
+#    }
+#  }
 
   stage('========== Build image ==========') { 
     app = docker.build("tanzu/${env.IMAGE_NAME}") 
