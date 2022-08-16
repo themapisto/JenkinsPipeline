@@ -96,32 +96,10 @@ $ vi values.yaml
 
 ## 2. Harbor 설치 전 config ( values.yaml 수정 )
 ```
-externalURL: https://myharbor.io 
-
+externalURL: https://myharbor.io:30012
 harborAdminPassword: "VMware1!"
-
-## Service parameters
-##
 service:
-  ## @param service.type The way how to expose the service: `Ingress`, `ClusterIP`, `NodePort` or `LoadBalancer`
-  ##
   type: NodePort
-  ## TLS parameters
-  ##
-  tls:
-    commonName: 'myharbor.io' 
-
-## Ingress parameters
-##
-ingress:
-  ## @param ingress.enabled Deploy ingress rules
-  ##
-  enabled: true 
-
-  hosts:
-    core: myharbor.io  
-    notary: notary.myharbor.io  
-
 persistence:
   ## @param persistence.enabled Enable the data persistence or not
   ##
