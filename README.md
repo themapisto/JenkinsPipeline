@@ -7,3 +7,13 @@
 | 3주차 | ☑️ | ☑️ | Rancher with Harbor 테스트|
 | 4주차 | ☑️ | ☑️ | Helm Deep dive |
 
+## github cmp ##
+```
+git add . git commit -m git push를 동시에 적용하는 세팅
+$ git config --global alias.cmp '!f() { git add -A && git commit -m "$@" && git push; }; f'
+```
+
+## github username , password 저장
+```
+$ git config --global credential.helper store
+```
