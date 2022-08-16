@@ -16,7 +16,6 @@ node {
 
     stage('Kubernetes deploy') {
         kubernetesDeploy configs: "test_koo.yaml", kubeconfigId: 'kubeconfig'
-        sh "kubectl create -f test_koo.yaml --kubeconfig=config.yaml"
     }
 
     stage('Complete') {
