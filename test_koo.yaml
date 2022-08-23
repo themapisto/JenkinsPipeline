@@ -5,5 +5,5 @@ metadata:
 spec:
   containers:
   - name: private-pod
-    image: core.harbor.domain/tanzu/nginx:10
+    image: nginx
   nodeName: gpu01
