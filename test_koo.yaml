@@ -5,5 +5,5 @@ metadata:
 spec:
   containers:
   - name: private-pod
-    image: nginx:3
+    image: nginx
   nodeName: gpu01
