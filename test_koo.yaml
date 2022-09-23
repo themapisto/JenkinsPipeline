@@ -5,5 +5,5 @@ metadata:
 spec:
   containers:
   - name: private-pod
-    image: nginx
+    image: harbor.aikoo.net/tanzu/nginx:1
 
