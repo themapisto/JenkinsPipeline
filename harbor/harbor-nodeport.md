@@ -232,7 +232,17 @@ systemctl restart containerd
 
 ```
 
-### 4-4 crictl image pull/tag/push
+### 4-4 docker image 푸시 확인
+
+
+```
+docker login -u admin core.harbor.domain:30003
+docker build -t core.harbor.domain:30003/프로젝트명/이미지명:태그 .
+docker push core.harbor.domain:30003/프로젝트명/이미지명:태그
+
+```
+
 
 ### 4-5 kubernetes pod via private registry
-
+- imagePullSecret이라는 항목을 pod 생성시 등록하여 확인
+- kubernetes.io (도큐먼트 참고)
