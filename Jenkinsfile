@@ -15,13 +15,13 @@ node {
       app.push("latest") 
 }
 
-    stage('Kubernetes deploy') {
-        kubernetesDeploy configs: "test_koo.yaml", kubeconfigId: 'kubeconfig'
-    }
+#    stage('Kubernetes deploy') {
+#        kubernetesDeploy configs: "test_koo.yaml", kubeconfigId: 'kubeconfig'
+#    }
 
-    stage('Complete') {
-        sh "echo 'The end'"
-    }
+#    stage('Complete') {
+#        sh "echo 'The end'"
+#    }
 
 
  
