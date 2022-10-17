@@ -10,7 +10,7 @@ node {
     app = docker.build("tanzu/${env.IMAGE_NAME}") 
 } 
   stage('========== Push image ==========') { 
-    docker.withRegistry('https://core.harbor.domain:32120', 'harbor') { 
+    docker.withRegistry('https://harbor.aikoo.net', 'harbor') { 
       app.push("${env.BUILD_NUMBER}") 
       app.push("latest") 
 }
