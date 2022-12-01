@@ -1,9 +1,12 @@
-https://github.com/themapisto/JenkinsPipeline.git
+1. SonarQube를 helm으로 설치해보려 했지만 잘 안되서 
+  VM에 docker을 설치한 후에 노드포트로 직접 사용했다.
 
-1. SonarQube 이미지 설치하기
+
+
+
+2. SonarQube 이미지 설치하기
 Docker 설치가 완료됐다면 이제 SonarQube 이미지를 가져오면 됩니다. Docker Hub에서 SonarQube의 이미지를 가져와서 설치합니다.
 
-2. docker pull하기
 ```
 docker pull sonarqube
 ```
