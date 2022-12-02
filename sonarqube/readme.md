@@ -58,3 +58,9 @@ squ_892cd416be91411e1e25b99cf8d1f37ff33af727
   -Dsonar.login=squ_892cd416be91411e1e25b99cf8d1f37ff33af727
   
 ```
+
+8. Jenkins에서 플러그인 다운로드 받기 ( SonarQube 로 검색 )
+9. Jenkins에서 시스템 환경설정에서 sonarscanner 등록하여 Jenkinsfile에서 사용할수 있게 하기
+![image](https://user-images.githubusercontent.com/52188918/205216965-e7ca7a44-8709-4a99-ae4b-a343bc9a9469.png)
+
+10. Jenkins파일 생성하기
