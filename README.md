@@ -20,6 +20,6 @@ $ git config --global credential.helper store
 
 ## github 계정 저장
 ```
-root@ip-10-0-6-133:~/cicd/JenkinsPipeline# git config --global user.name "themapisto"
-root@ip-10-0-6-133:~/cicd/JenkinsPipeline# git config --global user.email "themapisto@naver.com"
+git config --global user.name "themapisto"
+git config --global user.email "themapisto@naver.com"
 ```
