@@ -29,6 +29,8 @@ SonarQube 실행하기
 
 ```
 docker run -d --name sonarqube -p 5000:9000 sonarqube
+## 재시작시 
+docker start sonarqube 
 ```
 
 
