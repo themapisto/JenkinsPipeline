@@ -66,3 +66,14 @@ squ_892cd416be91411e1e25b99cf8d1f37ff33af727
 ![image](https://user-images.githubusercontent.com/52188918/205216965-e7ca7a44-8709-4a99-ae4b-a343bc9a9469.png)
 
 10. Jenkins파일 생성하기
+
+
+
+```
+stage ('SonarQube analysis'){
+
+sh "'${mvnHome}/bin/mvn' clean verify sonar:sonar -Dsonar.projectKey=Koo -Dsonar.host.url=http://54.238.193.86:5000 -Dsonar.login=squ_469bf65b7f647fc65a6c095593643f2f7edab9a9"
+
+}
+
+```
