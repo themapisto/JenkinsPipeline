@@ -1,4 +1,4 @@
-
+# git 
 ### github username , password 저장
 ```
 $ git config --global credential.helper store
