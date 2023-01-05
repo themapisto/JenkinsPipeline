@@ -1,4 +1,4 @@
-docker tag "원래 이미지" harbor.aikoo.net/tanzu/"새로운 이미지명"
+
 
 ## github cmp ##
 ```
@@ -15,4 +15,9 @@ $ git config --global credential.helper store
 ```
 git config --global user.name "themapisto"
 git config --global user.email "themapisto@naver.com"
+```
+
+## docker tag
+```
+docker tag "원래 이미지" harbor.aikoo.net/tanzu/"새로운 이미지명"
 ```
