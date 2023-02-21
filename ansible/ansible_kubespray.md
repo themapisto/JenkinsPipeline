@@ -1,19 +1,21 @@
+# 1. Deepops (ansible kubespray 클러스터 자동화 )
 
-### 1.git clone
+
+### 1-1.git clone
 ```
 $ git clone https://github.com/NVIDIA/deepops.git
 ```
-### 2.script 돌리기 ansible 설치 및 Galaxy role 업데이트
+### 1-2.script 돌리기 ansible 설치 및 Galaxy role 업데이트
 ```
 $ ./deepops/scripts/setup.sh
 # source /opt/deepops/env/bin/activate ( 파이썬 가상환경 들어가기 )
 ```
 
-### 3./config/inventory 수정 ( cluster 구성 master,worker ip set )
+### 1-3./config/inventory 수정 ( cluster 구성 master,worker ip set )
 - config.example -> config로 변경
 
 
-### 4. 실행 명령
+### 1-4. 실행 명령
 ```
 $ ansible-playbook -l k8s-cluster playbooks/k8s-cluster.yml
 ```
@@ -28,3 +30,12 @@ $ ansible-playbook -l k8s-cluster playbooks/k8s-cluster.yml
         key: "{{ lookup('file', private_key + '.pub') }}"
       tags: ssh-public
 ```
+
+# 2. Nvidia operator 설치 
+https://docs.nvidia.com/networking/pages/releaseview.action?pageId=39266293
+
+- GPU operatior
+- SR-IOV network operator : GPU 가속 및 kubernetes GPU 할당
+
+
+
