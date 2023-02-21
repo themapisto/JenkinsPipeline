@@ -1,0 +1,19 @@
+# catalog-info
+https://github.com/sample-accelerators/tanzu-java-web-app/-/blob/main/catalog/catalog-info.yaml
+http://gitlab.coinsik.net/ama/tanzu/-/blob/main/TAP-HOL/catalog/catalog-info.yaml
+
+# workload create
+tanzu apps workload create test-petclinic \
+--git-repo http://gitlab.coinsik.net/tap/tap-petclinic \
+--git-branch main \
+--type web \
+--label app.kubernetes.io/part-of=tanzu-java-web-app-live-view \
+--label tanzu.app.live.view=true \
+--label tanzu.app.live.view.application.name=tanzu-java-web-app-live-view \
+--annotation autoscaling.knative.dev/minScale=1 \
+--yes \
+--namespace default
+
+# gitlab clone url
+http://gitlab.coinsik.net/ama/tanzu-java-web-app
+http://gitlab.coinsik.net/tap/tap-petclinic
