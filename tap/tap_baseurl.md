@@ -15,19 +15,19 @@
 
 > Set up a Service
 
-1.kapp RabbitMQ 클러스터 쿠버네티스 오퍼레이터 install
-2.RBAC 설정
-3.ClusterInstanceClass 생성
+>> 1.kapp install ( RabbitMQ Cluster Operator 설치 )
+>> 2.RBAC 설정
+>> 3.ClusterInstanceClass 생성
 
 > Create a Service instance
 
-1.namespace 생성
-2.Rabbitmq Cluster 생성
-3.resourceClaimPolicy 생성
+>> 1.namespace 생성
+>> 2.Rabbitmq Cluster 생성
+>> 3.resourceClaimPolicy 생성
 
 > Claim a service instance
 
-서비스 인스턴스를 요청
+>> 1. 서비스 인스턴스를 요청
 
 
 
