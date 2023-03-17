@@ -35,22 +35,90 @@ rules:
 - apiGroups: ["rabbitmq.com"]
   resources: ["rabbitmqclusters"]
   verbs: ["get", "list", "watch"]
+  
+$ kubectl apply -f rmq-reader-for-binding-and-claims.yaml
+  
 ```
 <br><br>
 3.ClusterInstanceClass 생성
+```
+# rmq-class.yaml
+---
+apiVersion: services.apps.tanzu.vmware.com/v1alpha1
+kind: ClusterInstanceClass
+metadata:
+  name: rabbitmq
+spec:
+  description:
+    short: It's a RabbitMQ cluster!
+  pool:
+    group: rabbitmq.com
+    kind: RabbitmqCluster
+# for Postgres
+#   group: sql.tanzu.vmware.com
+#   kind: Postgres
+# for MySql
+#   group: with.sql.tanzu.vmware.com
+#   kind: MySQL
+
+$ kubectl apply -f rmq-class.yaml
+
+```
 <br><br>
 
 ### Create a Service instance
 
 1.namespace 생성
+```
+kubectl create namespace service-instances
+```
 <br><br>
 2.Rabbitmq Cluster 생성
+```
+# rmq-1-service-instance.yaml
+---
+apiVersion: rabbitmq.com/v1beta1
+kind: RabbitmqCluster
+metadata:
+  name: rmq-1
+  namespace: service-instances
+  
+$ kubectl apply -f rmq-1-service-instance.yaml  
+```
 <br><br>
 3.resourceClaimPolicy 생성
+```
+# rmq-claim-policy.yaml
+---
+apiVersion: services.apps.tanzu.vmware.com/v1alpha1
+kind: ResourceClaimPolicy
+metadata:
+  name: rabbitmqcluster-cross-namespace
+  namespace: service-instances
+spec:
+  consumingNamespaces:
+  - '*'
+  subject:
+    group: rabbitmq.com
+    kind: RabbitmqCluster
+# for Postgres
+#   group: sql.tanzu.vmware.com
+#   kind: Postgres
+# for MySql
+#   group: with.sql.tanzu.vmware.com
+#   kind: MySQL
+
+$ kubectl apply -f rmq-claim-policy.yaml
+
+```
 
 ### Claim a service instance
 
 1. 서비스 인스턴스 요청
+```
+$ tanzu service class list
+$ tanzu service class-claim create rmq-1 --class rabbitmq
+```
 
 
 
