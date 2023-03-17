@@ -5,7 +5,7 @@
 - Claimed the service instance
 
 ***
-<center><img src="img.png" width="100%" height="100%"></center>
+<center><img src="img.png" width="70%" height="70%"></center>
 ***
 
 ### Claimed 된 서비스 인스턴스 확인
@@ -52,3 +52,4 @@ tanzu apps workload create \
   --annotation autoscaling.knative.dev/minScale=1 \
   --service-ref="rmq=services.apps.tanzu.vmware.com/v1alpha1:ClassClaim:rmq-1"
 ```
+
