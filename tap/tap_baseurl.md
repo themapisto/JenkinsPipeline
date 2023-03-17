@@ -15,9 +15,9 @@
 
 > Set up a Service
 
->> 1.kapp install ( RabbitMQ Cluster Operator 설치 )
->> 2.RBAC 설정
->> 3.ClusterInstanceClass 생성
+1.kapp install ( RabbitMQ Cluster Operator 설치 )
+2.RBAC 설정
+3.ClusterInstanceClass 생성
 
 > Create a Service instance
 
