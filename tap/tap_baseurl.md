@@ -16,13 +16,13 @@
 > Set up a Service
 
 1.kapp install ( RabbitMQ Cluster Operator 설치 )
-```aidl
+```
 kapp -y deploy --app rmq-operator --file https://github.com/rabbitmq/cluster-operator/releases/latest/download/cluster-operator.yml
 ```
 
 <br><br>
 2.RBAC 설정
-```aidl
+```
 # rmq-reader-for-binding-and-claims.yaml
 ---
 apiVersion: rbac.authorization.k8s.io/v1
