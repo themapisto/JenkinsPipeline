@@ -1,19 +1,14 @@
-# catalog-info
-https://github.com/sample-accelerators/tanzu-java-web-app/-/blob/main/catalog/catalog-info.yaml
-http://gitlab.coinsik.net/ama/tanzu/-/blob/main/TAP-HOL/catalog/catalog-info.yaml
+# 1. TAP 서비스 바인딩
+## Prerequisite
+- 탭 1.4.0 버전 설치 (cluster with Tanzu Application Platform installed.)
+- Tanzu CLI 및 해당 플러그인을 설치
+- VMware Tanzu RabbitMQ for Kubernetes.
+- VMware Tanzu SQL with Postgres for Kubernetes.
+- VMware Tanzu SQL with MySQL for Kubernetes.
 
-# workload create
-tanzu apps workload create test-petclinic \
---git-repo http://gitlab.coinsik.net/tap/tap-petclinic \
---git-branch main \
---type web \
---label app.kubernetes.io/part-of=tanzu-java-web-app-live-view \
---label tanzu.app.live.view=true \
---label tanzu.app.live.view.application.name=tanzu-java-web-app-live-view \
---annotation autoscaling.knative.dev/minScale=1 \
---yes \
---namespace default
+## 참고사항
+위 VMware에서 제공하는 Tanzu RabbitMQ, Postgres, Mysql은 kapp으로 퍼블릭 깃헙의 소스를 통해  설치 하지만,
+고객사 상황에 맞게 프라이빗으로 구성할수 있다. 설치 과정은 다음과 같다.
 
-# gitlab clone url
-http://gitlab.coinsik.net/ama/tanzu-java-web-app
-http://gitlab.coinsik.net/tap/tap-petclinic
+
+## 설치 절차
