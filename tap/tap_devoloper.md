@@ -4,7 +4,5 @@
 - Created a service instance
 - Claimed the service instance
 
-![img.png](img.png)
 
-
-<center><img src="img.png" width="300" height="300"></center>
+<center><img src="img.png" width="100%" height="100%"></center>
