@@ -4,5 +4,7 @@
 - Created a service instance
 - Claimed the service instance
 
+***
+
 
 <center><img src="img.png" width="100%" height="100%"></center>
