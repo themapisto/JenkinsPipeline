@@ -13,7 +13,7 @@
 
 ## 설치 절차
 
-> Set up a Service
+### Set up a Service
 
 1.kapp install ( RabbitMQ Cluster Operator 설치 )
 ```
@@ -40,7 +40,7 @@ rules:
 3.ClusterInstanceClass 생성
 <br><br>
 
-> Create a Service instance
+### Create a Service instance
 
 1.namespace 생성
 <br><br>
@@ -48,7 +48,7 @@ rules:
 <br><br>
 3.resourceClaimPolicy 생성
 
-> Claim a service instance
+### Claim a service instance
 
 1. 서비스 인스턴스 요청
 
