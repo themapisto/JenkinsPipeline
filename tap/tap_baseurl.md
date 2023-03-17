@@ -16,8 +16,26 @@
 > Set up a Service
 
 1.kapp install ( RabbitMQ Cluster Operator 설치 )
+```aidl
+kapp -y deploy --app rmq-operator --file https://github.com/rabbitmq/cluster-operator/releases/latest/download/cluster-operator.yml
+```
+
 <br><br>
 2.RBAC 설정
+```aidl
+# rmq-reader-for-binding-and-claims.yaml
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: rmq-reader-for-binding-and-claims
+  labels:
+    servicebinding.io/controller: "true"
+rules:
+- apiGroups: ["rabbitmq.com"]
+  resources: ["rabbitmqclusters"]
+  verbs: ["get", "list", "watch"]
+```
 <br><br>
 3.ClusterInstanceClass 생성
 <br><br>
@@ -31,13 +49,8 @@
 3.resourceClaimPolicy 생성
 
 > Claim a service instance
-<br>
+
 1. 서비스 인스턴스 요청
 
 
 
-### 스크립트 참고
-
-```
-kapp -y deploy --app rmq-operator --file https://github.com/rabbitmq/cluster-operator/releases/latest/download/cluster-operator.yml
-```
