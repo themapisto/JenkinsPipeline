@@ -1,0 +1,16 @@
+properties:
+  bucketName:
+    type: string
+    title: bucket name
+    description: Bucket name
+    default: ''
+  awsAccessKey:
+    type: string
+    title: accessKey ID
+    description: aws accessKey ID
+    default: ''
+  awsSecretKey:
+    type: string
+    title: secretKey ID
+    description: aws secretKey ID
+    default: ''
