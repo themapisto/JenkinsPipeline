@@ -3,7 +3,7 @@ shared:
   ingress_domain: taskoo.net
 ceip_policy_disclosed: true
 buildservice:
-  kp_default_repository: "harbor.taskoo.net/tanzu-application-platform/build-service"
+  kp_default_repository: "harbor.aikoo.net/tanzu-application-platform/build-service"
   kp_default_repository_username: "admin"
   kp_default_repository_password: "Harbor12345"
   enable_automatic_dependency_updates: false
@@ -41,7 +41,7 @@ contour:
 supply_chain: basic
 ootb_supply_chain_basic:
   registry:
-    server: "harbor.taskoo.net"
+    server: "harbor.aikoo.net"
     repository: "tanzu-application-platform/supply-chain"
     ca_cert_data: |
       -----BEGIN CERTIFICATE-----
