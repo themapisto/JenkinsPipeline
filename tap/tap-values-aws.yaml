@@ -77,15 +77,15 @@ tap_gui:
   ingressEnabled: "true"
   app_config:    
     app:
-     baseUrl: http://tap-gui.taskoo.net
+     baseUrl: https://tap-gui.taskoo.net
      catalog:
       locations:
         - type: url
           target: https://github.com/tanzukorea/TAP-HOL/blob/main/catalog/catalog-info.yaml
     backend:
-      baseUrl: http://tap-gui.taskoo.net
+      baseUrl: https://tap-gui.taskoo.net
       cors:
-        origin: http://tap-gui.taskoo.net
+        origin: https://tap-gui.taskoo.net
 appliveview:
   ingressEnabled: true
 appliveview_connector:
