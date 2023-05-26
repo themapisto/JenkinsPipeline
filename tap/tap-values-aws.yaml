@@ -3,7 +3,7 @@ shared:
   ingress_domain: taskoo.net
 ceip_policy_disclosed: true
 buildservice:
-  kp_default_repository: "harbor.aikoo.net/tanzu-application-platform/build-service"
+  kp_default_repository: "harbor.taskoo.net/tanzu-application-platform/build-service"
   kp_default_repository_username: "admin"
   kp_default_repository_password: "Harbor12345"
   enable_automatic_dependency_updates: false
@@ -41,7 +41,7 @@ contour:
 supply_chain: basic
 ootb_supply_chain_basic:
   registry:
-    server: "harbor.aikoo.net"
+    server: "harbor.taskoo.net"
     repository: "tanzu-application-platform/supply-chain"
     ca_cert_data: |
       -----BEGIN CERTIFICATE-----
@@ -77,15 +77,15 @@ tap_gui:
   ingressEnabled: "true"
   app_config:    
     app:
-     baseUrl: http://tap-gui.aikoo.net
+     baseUrl: http://tap-gui.taskoo.net
      catalog:
       locations:
         - type: url
           target: https://github.com/tanzukorea/TAP-HOL/blob/main/catalog/catalog-info.yaml
     backend:
-      baseUrl: http://tap-gui.aikoo.net
+      baseUrl: http://tap-gui.taskoo.net
       cors:
-        origin: http://tap-gui.aikoo.net
+        origin: http://tap-gui.taskoo.net
 appliveview:
   ingressEnabled: true
 appliveview_connector:
@@ -93,7 +93,7 @@ appliveview_connector:
     ingressEnabled: true
 metadata_store:
   ns_for_export_app_cert: "default"
-  ingress_domain: aikoo.net
+  ingress_domain: taskoo.net
   app_service_type: ClusterIP
   ingress_enabled: "true"
   targetImagePullSecret: "tap-registry"
