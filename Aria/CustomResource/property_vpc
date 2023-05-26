@@ -1,0 +1,16 @@
+properties:
+  vpcName:
+    type: string
+    title: vpc name
+    description: vpc name
+    default: ''
+  awsAccessKey:
+    type: string
+    title: accessKey ID
+    description: aws accessKey ID
+    default: ''
+  awsSecretKey:
+    type: string
+    title: secretKey ID
+    description: aws secretKey ID
+    default: ''
