@@ -1,0 +1,146 @@
+profile: full
+shared:
+  ingress_domain: taskoo.net
+ceip_policy_disclosed: true
+buildservice:
+  kp_default_repository: "harbor.aikoo.net/tanzu-application-platform/build-service"
+  kp_default_repository_username: "admin"
+  kp_default_repository_password: "Harbor12345"
+  enable_automatic_dependency_updates: false
+  exclude_dependencies: true
+  ca_cert_data: |
+      -----BEGIN CERTIFICATE-----
+      MIIDSDCCAjCgAwIBAgIBATANBgkqhkiG9w0BAQsFADA8MQswCQYDVQQGEwJLUjES
+      MBAGA1UECgwJTEJNIGNvcnAuMRkwFwYDVQQDDBBoYXJib3IuYWlrb28ubmV0MB4X
+      DTIyMDkxNTExMDg0OVoXDTMyMDkxMjExMDg0OVowPDELMAkGA1UEBhMCS1IxEjAQ
+      BgNVBAoMCUxCTSBjb3JwLjEZMBcGA1UEAwwQaGFyYm9yLmFpa29vLm5ldDCCASIw
+      DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKcyzFmKJKUbV/9AqezW5OSA8poq
+      6YDUR9XOhxPbblSQiEqNC4u4e1/boXu+Zhu5yy7ZVyIMHop57fG2RuHGjYfnqYbD
+      yMp9gaijKt/M1a7mz67uyKAXW4Jq7X55vHcDLnRTf4tGd/zHZ64ulOJMvfcfeDlC
+      hN1Z2DM3nIY1MAXLsySTOMmsBRh/GGwffMp8+9PrJm++xC/+zwxHRtvARU8bHlyf
+      rofneCgwbis/d9SS1UO6pwkikYyAC91+nw6h68wElGkFIcmERjgKiWkjTAEHTlyt
+      XbZw1/JTHgfJJ7Ujn7bSJFObhxXeaKADtnoOcbwtEoMKRywXNp4Qvpc1StkCAwEA
+      AaNVMFMwEgYDVR0TAQH/BAgwBgEB/wIBADAdBgNVHQ4EFgQU7Ee3/cehIPGTIz08
+      oq4VIQmzcWkwCwYDVR0PBAQDAgEGMBEGCWCGSAGG+EIBAQQEAwIABzANBgkqhkiG
+      9w0BAQsFAAOCAQEAQHO1yiQP5Z5vOEGBlO8KonBRA++Z+wfLurvIYfcDh3MPvsbd
+      JOGSoJpIWADiBMShk9D0DWnPwLY6NbVRA4UkYBA9k1ImSNQXyl6M3AiD4YKxFa06
+      MqThzyl5+tD/TjMa2zsiard2CaYVp66KkgELL3wur+/uwPjNDtcpWem8exLf6OW/
+      dCyHjqDHMM/3Ry56VpMelawMBFLLop6vzJsO1/XoVVFRujVSh4D8Tp4wqnrnIXc+
+      MpvDzTwWFZClhVbB2CgtcVsf/TFSpgzxbC1SlN57bwkypAjv7en6dth9I4Ti4Kwp
+      2gGj5iH0JwKSLWJOVdR+cLABzx56J7LQ0k4CCw==
+      -----END CERTIFICATE-----
+scanning:
+  metadataStore:
+    url: ""
+contour:
+  infrastructure_provider: aws
+  envoy:
+    service:
+      aws:
+       LBType: nlb
+supply_chain: basic
+ootb_supply_chain_basic:
+  registry:
+    server: "harbor.aikoo.net"
+    repository: "tanzu-application-platform/supply-chain"
+    ca_cert_data: |
+      -----BEGIN CERTIFICATE-----
+      MIIDSDCCAjCgAwIBAgIBATANBgkqhkiG9w0BAQsFADA8MQswCQYDVQQGEwJLUjES
+      MBAGA1UECgwJTEJNIGNvcnAuMRkwFwYDVQQDDBBoYXJib3IuYWlrb28ubmV0MB4X
+      DTIyMDkxNTExMDg0OVoXDTMyMDkxMjExMDg0OVowPDELMAkGA1UEBhMCS1IxEjAQ
+      BgNVBAoMCUxCTSBjb3JwLjEZMBcGA1UEAwwQaGFyYm9yLmFpa29vLm5ldDCCASIw
+      DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKcyzFmKJKUbV/9AqezW5OSA8poq
+      6YDUR9XOhxPbblSQiEqNC4u4e1/boXu+Zhu5yy7ZVyIMHop57fG2RuHGjYfnqYbD
+      yMp9gaijKt/M1a7mz67uyKAXW4Jq7X55vHcDLnRTf4tGd/zHZ64ulOJMvfcfeDlC
+      hN1Z2DM3nIY1MAXLsySTOMmsBRh/GGwffMp8+9PrJm++xC/+zwxHRtvARU8bHlyf
+      rofneCgwbis/d9SS1UO6pwkikYyAC91+nw6h68wElGkFIcmERjgKiWkjTAEHTlyt
+      XbZw1/JTHgfJJ7Ujn7bSJFObhxXeaKADtnoOcbwtEoMKRywXNp4Qvpc1StkCAwEA
+      AaNVMFMwEgYDVR0TAQH/BAgwBgEB/wIBADAdBgNVHQ4EFgQU7Ee3/cehIPGTIz08
+      oq4VIQmzcWkwCwYDVR0PBAQDAgEGMBEGCWCGSAGG+EIBAQQEAwIABzANBgkqhkiG
+      9w0BAQsFAAOCAQEAQHO1yiQP5Z5vOEGBlO8KonBRA++Z+wfLurvIYfcDh3MPvsbd
+      JOGSoJpIWADiBMShk9D0DWnPwLY6NbVRA4UkYBA9k1ImSNQXyl6M3AiD4YKxFa06
+      MqThzyl5+tD/TjMa2zsiard2CaYVp66KkgELL3wur+/uwPjNDtcpWem8exLf6OW/
+      dCyHjqDHMM/3Ry56VpMelawMBFLLop6vzJsO1/XoVVFRujVSh4D8Tp4wqnrnIXc+
+      MpvDzTwWFZClhVbB2CgtcVsf/TFSpgzxbC1SlN57bwkypAjv7en6dth9I4Ti4Kwp
+      2gGj5iH0JwKSLWJOVdR+cLABzx56J7LQ0k4CCw==
+      -----END CERTIFICATE-----
+  gitops:
+    ssh_secret: ""
+
+
+accelerator:
+  samples:
+  # Prevent repeated polling of github to pull accelerators
+    include: true
+tap_gui:
+  service_type: ClusterIP
+  ingressEnabled: "true"
+  app_config:    
+    app:
+     baseUrl: http://tap-gui.aikoo.net
+     catalog:
+      locations:
+        - type: url
+          target: https://github.com/tanzukorea/TAP-HOL/blob/main/catalog/catalog-info.yaml
+    backend:
+      baseUrl: http://tap-gui.aikoo.net
+      cors:
+        origin: http://tap-gui.aikoo.net
+appliveview:
+  ingressEnabled: true
+appliveview_connector:
+  backend:
+    ingressEnabled: true
+metadata_store:
+  ns_for_export_app_cert: "default"
+  ingress_domain: aikoo.net
+  app_service_type: ClusterIP
+  ingress_enabled: "true"
+  targetImagePullSecret: "tap-registry"
+grype:
+  namespace: "default"
+  targetImagePullSecret: "tap-registry"
+source_controller:
+  ca_cert_data: |
+      -----BEGIN CERTIFICATE-----
+      MIIDSDCCAjCgAwIBAgIBATANBgkqhkiG9w0BAQsFADA8MQswCQYDVQQGEwJLUjES
+      MBAGA1UECgwJTEJNIGNvcnAuMRkwFwYDVQQDDBBoYXJib3IuYWlrb28ubmV0MB4X
+      DTIyMDkxNTExMDg0OVoXDTMyMDkxMjExMDg0OVowPDELMAkGA1UEBhMCS1IxEjAQ
+      BgNVBAoMCUxCTSBjb3JwLjEZMBcGA1UEAwwQaGFyYm9yLmFpa29vLm5ldDCCASIw
+      DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKcyzFmKJKUbV/9AqezW5OSA8poq
+      6YDUR9XOhxPbblSQiEqNC4u4e1/boXu+Zhu5yy7ZVyIMHop57fG2RuHGjYfnqYbD
+      yMp9gaijKt/M1a7mz67uyKAXW4Jq7X55vHcDLnRTf4tGd/zHZ64ulOJMvfcfeDlC
+      hN1Z2DM3nIY1MAXLsySTOMmsBRh/GGwffMp8+9PrJm++xC/+zwxHRtvARU8bHlyf
+      rofneCgwbis/d9SS1UO6pwkikYyAC91+nw6h68wElGkFIcmERjgKiWkjTAEHTlyt
+      XbZw1/JTHgfJJ7Ujn7bSJFObhxXeaKADtnoOcbwtEoMKRywXNp4Qvpc1StkCAwEA
+      AaNVMFMwEgYDVR0TAQH/BAgwBgEB/wIBADAdBgNVHQ4EFgQU7Ee3/cehIPGTIz08
+      oq4VIQmzcWkwCwYDVR0PBAQDAgEGMBEGCWCGSAGG+EIBAQQEAwIABzANBgkqhkiG
+      9w0BAQsFAAOCAQEAQHO1yiQP5Z5vOEGBlO8KonBRA++Z+wfLurvIYfcDh3MPvsbd
+      JOGSoJpIWADiBMShk9D0DWnPwLY6NbVRA4UkYBA9k1ImSNQXyl6M3AiD4YKxFa06
+      MqThzyl5+tD/TjMa2zsiard2CaYVp66KkgELL3wur+/uwPjNDtcpWem8exLf6OW/
+      dCyHjqDHMM/3Ry56VpMelawMBFLLop6vzJsO1/XoVVFRujVSh4D8Tp4wqnrnIXc+
+      MpvDzTwWFZClhVbB2CgtcVsf/TFSpgzxbC1SlN57bwkypAjv7en6dth9I4Ti4Kwp
+      2gGj5iH0JwKSLWJOVdR+cLABzx56J7LQ0k4CCw==
+      -----END CERTIFICATE-----
+convention_controller:
+  ca_cert_data: |
+      -----BEGIN CERTIFICATE-----
+      MIIDSDCCAjCgAwIBAgIBATANBgkqhkiG9w0BAQsFADA8MQswCQYDVQQGEwJLUjES
+      MBAGA1UECgwJTEJNIGNvcnAuMRkwFwYDVQQDDBBoYXJib3IuYWlrb28ubmV0MB4X
+      DTIyMDkxNTExMDg0OVoXDTMyMDkxMjExMDg0OVowPDELMAkGA1UEBhMCS1IxEjAQ
+      BgNVBAoMCUxCTSBjb3JwLjEZMBcGA1UEAwwQaGFyYm9yLmFpa29vLm5ldDCCASIw
+      DQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKcyzFmKJKUbV/9AqezW5OSA8poq
+      6YDUR9XOhxPbblSQiEqNC4u4e1/boXu+Zhu5yy7ZVyIMHop57fG2RuHGjYfnqYbD
+      yMp9gaijKt/M1a7mz67uyKAXW4Jq7X55vHcDLnRTf4tGd/zHZ64ulOJMvfcfeDlC
+      hN1Z2DM3nIY1MAXLsySTOMmsBRh/GGwffMp8+9PrJm++xC/+zwxHRtvARU8bHlyf
+      rofneCgwbis/d9SS1UO6pwkikYyAC91+nw6h68wElGkFIcmERjgKiWkjTAEHTlyt
+      XbZw1/JTHgfJJ7Ujn7bSJFObhxXeaKADtnoOcbwtEoMKRywXNp4Qvpc1StkCAwEA
+      AaNVMFMwEgYDVR0TAQH/BAgwBgEB/wIBADAdBgNVHQ4EFgQU7Ee3/cehIPGTIz08
+      oq4VIQmzcWkwCwYDVR0PBAQDAgEGMBEGCWCGSAGG+EIBAQQEAwIABzANBgkqhkiG
+      9w0BAQsFAAOCAQEAQHO1yiQP5Z5vOEGBlO8KonBRA++Z+wfLurvIYfcDh3MPvsbd
+      JOGSoJpIWADiBMShk9D0DWnPwLY6NbVRA4UkYBA9k1ImSNQXyl6M3AiD4YKxFa06
+      MqThzyl5+tD/TjMa2zsiard2CaYVp66KkgELL3wur+/uwPjNDtcpWem8exLf6OW/
+      dCyHjqDHMM/3Ry56VpMelawMBFLLop6vzJsO1/XoVVFRujVSh4D8Tp4wqnrnIXc+
+      MpvDzTwWFZClhVbB2CgtcVsf/TFSpgzxbC1SlN57bwkypAjv7en6dth9I4Ti4Kwp
+      2gGj5iH0JwKSLWJOVdR+cLABzx56J7LQ0k4CCw==
+      -----END CERTIFICATE-----

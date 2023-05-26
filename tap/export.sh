@@ -2,3 +2,11 @@ export TKG_CUSTOM_IMAGE_REPOSITORY_CA_CERTIFICATE=LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS
 export TKG_BOM_IMAGE_TAG=v1.6.1
 export TKG_IMAGE_REPO=projects.registry.vmware.com/tkg
 export TKG_CUSTOM_IMAGE_REPOSITORY=harbor.coinsik.net/tkg
+
+### TAP 
+export INSTALL_REGISTRY_USERNAME=admin
+export INSTALL_REGISTRY_PASSWORD=Harbor12345
+export INSTALL_REGISTRY_HOSTNAME=harbor.aikoo.net
+export TAP_VERSION=1.2.2
+export INSTALL_REGISTRY_REPO=tanzu-application-platform
+export VERSION=1.6.3
