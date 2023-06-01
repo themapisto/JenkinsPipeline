@@ -5,5 +5,5 @@ metadata:
   name: deploy-reader
 rules:
 - apiGroups: ["*"]
-  resources: ["deployments"]
-  verbs: ["get","list","delete"]
+  resources: ["*"]
+  verbs: ["apply","get","list","delete"]
