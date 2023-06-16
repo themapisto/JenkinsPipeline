@@ -45,8 +45,13 @@
   cd /root/.ssh/
   cat id_rsa.pub 의 퍼블릭 키를 복사하거나 (ssh-copy-id) 를 사용하여 키를 복사합니다.
   
+````
+# Root
   kpkim@local-host$ ssh-copy-id -i ~/.ssh/id_rsa.pub 172.10.0.x 
-  
+# user
+  kpkim@local-host$ ssh-copy-id -i ~/.ssh/id_rsa.pub mzc@172.10.0.x 
+
+````  
   
   @ vault password 사용을 원할시에
   
