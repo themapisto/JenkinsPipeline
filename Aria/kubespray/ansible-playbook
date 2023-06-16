@@ -1,0 +1,95 @@
+#! /usr/bin/python3
+# -*- coding: utf-8 -*-
+# (c) 2012, Michael DeHaan <michael.dehaan@gmail.com>
+#
+# This file is part of Ansible
+#
+# Ansible is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# Ansible is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with Ansible.  If not, see <http://www.gnu.org/licenses/>.
+
+# PYTHON_ARGCOMPLETE_OK
+
+from __future__ import (absolute_import, division, print_function)
+__metaclass__ = type
+
+__requires__ = ['ansible_base']
+
+import os
+import re
+import sys
+import time
+import json
+import traceback
+
+ORGINAL_ANSIBLE_PLAYBOOK_FILE = '/usr/bin/ansible-playbook-origin'  # renamed ansible-playbook file
+LOG_FILE = '/tmp/vra8-ansible.log' # or (None or False) or another file path
+INPUT_DELEMETER='?'
+PARAM_DELEMETER=';'
+ARRAY_DELEMETER='&'
+
+def getRealType(val):
+    if re.search('^[0-9]+$', val): return int(val)
+    elif re.search('^[0-9]+\.[0-9]+$', val): return float(val)
+    elif ARRAY_DELEMETER in val: return [getRealType(v) for v in val.split(ARRAY_DELEMETER)]
+    else: return val
+
+def writeErrorLog(msg):
+    with open(LOG_FILE, 'a') as fd: fd.write('----[ %s ]----\nERROR : %s \n\n' % (time.ctime(), msg))
+    exit(-1)
+
+if __name__ == '__main__':
+    try:
+        sys_args = sys.argv[1:]
+        vra_args = sys_args[0]
+        ans_args = sys_args[1:]
+        if vra_args[0] == '"' and vra_args[-1] == '"': vra_args = vra_args[1:-1]
+        elif vra_args[0] == '"': writeErrorLog('incorrect double quotation')
+        elif vra_args[-1] == '"': writeErrorLog('incorrect double quotation')
+
+        if INPUT_DELEMETER in vra_args:
+            yaml_path, vra_param = vra_args.split(INPUT_DELEMETER)
+            vra_param = vra_param.split(PARAM_DELEMETER)
+        else:
+            yaml_path = vra_args
+            vra_param = []
+
+        if '--syntax-check' not in ans_args:
+            #extra_vars = {"ansible_sudo_pass':'megazone00!"}
+            extra_vars = {"ansible_sudo_pass":"megazone00!"}
+            json_data = json.dumps(extra_vars)
+            for param in vra_param:
+                kv = re.match('^(?P<key>\w+)=(?P<val>.+)$', param)
+                if kv:
+                    key, val = kv.groups()
+                    extra_vars[key] = getRealType(val)
+            if extra_vars:
+
+                ans_args.append("--extra-vars='%s'" % json.dumps(extra_vars))
+
+        ans_args_str = ' '.join(ans_args)
+        value=ans_args_str
+        start_index = value.find("/inventory/") + len("/inventory/")
+        end_index = value.find("/", start_index)
+        extracted_str = value[start_index:end_index]
+        directory_path = f"/opt/inventory/{extracted_str}"
+        if not os.path.exists(directory_path):
+          os.mkdir(directory_path)
+        ans_str = ' %s %s ' % (yaml_path, ans_args_str)
+        print(ans_str)
+
+        with open(LOG_FILE, 'a') as fd: fd.write('----[ %s ]----\nVRA-ARGS : %s\nANS-ARGS : %s\nEXECUTE : %s\n\n' % (time.ctime(), vra_args, ans_args_str, ans_str))
+        exit(os.system('%s %s' % (ORGINAL_ANSIBLE_PLAYBOOK_FILE, ans_str)))
+
+
+
+    except Exception as e: writeErrorLog(str(e))
