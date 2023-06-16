@@ -4,7 +4,6 @@
 4. ansible-playbook /usr/local/bin -> /usr/bin path 변경
 5. ansible-playbook chmod 755 
 6. /etc/ansible/hosts 파일에 ip 하나 아무거나 넣어놓기
-7. 테스트입니다.
 
 
 
