@@ -12,7 +12,7 @@ NTP=""						# set your ntp server
 SWAP_OFF=true				# set swap fs off
 REPO_PATH=""				# set your repository
 REPO_UPGRADE=true			# trigger upgrade task
-SSL_PUB_KEY=""				# set your master public ssh key
+SSL_PUB_KEY="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDJs32FbeAfkYaVvu9CfyRehVRRUUU3fFZ+qKv5yRxWrjwtJ58q+ApzvocLBF5Y65kTSPfshomBzn9aBZhuDV9Cm+7ivOd6AAln1bVt48GpWImyG5kumzgBY8reI2qYzoNN6FPN/EMdEeNqFLOJ3FLMx6eTKfBSq+R4R2livNLnvj0QaKexHgT2rkxSpvmilXy9QRwKTmdkfGOawKNwAdU9FIALiTtlGKz8d5+QkCkvytDdv069Xml/oO9/gLDHbTwCerIKzOaIeaigSwEFDaL0qGMv+9htphhnm+IkNAkGVcFlT5nC5X8Oz4CVO+f9tl3zlR74WBHngiBTzukSGCpF2tmI9ZZxTzFbTcGXvBDVH0A5nZkZV4u42ab5HsHfYR+uE19mTZ38Salz/jqqdM/Qo7BR/Oc0Kx2Q5UNwe5gcVDZO3Q+nm7fAlnqPbQOXGk37bW4M8pZvDaoruC64y/q2Mdid0iUu0Ux488LqPNgBEYJ0Xsm4nTnPvZpayRxSAyU= root@VMW-Ansible-Host-000174"				# set your master public ssh key
 TIME_ZONE="Asia/Seoul"		# set your timezone
 
 # remove non-cloudic packages
@@ -28,41 +28,14 @@ systemctl disable vmtoolsd
 systemctl stop vmtoolsd
 yum remove -y open-vm-tools
 
+
 # upgrade && install basic packages
-if [ -n "$REPO" ]; then
-rm -rf /etc/yum.repos.d/*
-cat <<EOF> /etc/yum.repos.d/cloud.repo
-[BaseOS]
-name=Cloud BaseOS Repository
-baseurl=$REPO/BaseOS/
-gpgcheck=0
-enabled=1
+yum update
+yum install epel-release
 
-[AppStream]
-name=Cloud AppStream Repository
-baseurl=$REPO/AppStream/
-gpgcheck=0
-enabled=1
-EOF
-fi
-if [ $REPO_UPGRADE == true ]; then
-yum update -y
-yum install -y net-tools bind-utils tar perl wget
-fi
 
-# settings
-## grub bootloader
-sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/g' /etc/default/grub
-grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
 
-## ssh
-sed -i 's/#ClientAliveInterval 0/ClientAliveInterval 300/g' /etc/ssh/sshd_config
-sed -i 's/#ClientAliveCountMax 3/ClientAliveCountMax 12/g' /etc/ssh/sshd_config
-sed -i 's/#PubkeyAuthentication yes/PubkeyAuthentication yes/g' /etc/ssh/sshd_config
-cat <<EOF> /etc/ssh/ssh_config.d/99-cloud.conf
-StrictHostKeyChecking no
-UserKnownHostsFile /dev/null
-EOF
+
 mkdir -p /root/.ssh
 if [ -n "$SSL_PUB_KEY" ]; then
 	echo "$SSL_PUB_KEY" >> /root/.ssh/authorized_keys
@@ -70,20 +43,11 @@ if [ -n "$SSL_PUB_KEY" ]; then
 fi
 systemctl restart sshd
 
-## system daemon
-sed -i 's/#DefaultTimeoutStartSec=90s/DefaultTimeoutStartSec=10s/g' /etc/systemd/system.conf
-sed -i 's/#DefaultTimeoutStopSec=90s/DefaultTimeoutStopSec=10s/g' /etc/systemd/system.conf
-systemctl daemon-reload
 
-## network & time
-cp /usr/share/zoneinfo/$TIME_ZONE /etc/localtime
-if [ -n "$DNS" ]; then
-	sed -i "s/#DNS=/DNS=$DNS/g" /etc/systemd/resolved.conf
-fi
-if [ -n "$NTP" ]; then
-	sed -i "s/server /#server /g" /etc/chrony.conf
-	echo "server $NTP iburst" >> /etc/chrony.conf
-fi
+
+
+
+
 
 # install required packages
 ## vmware tools
@@ -96,13 +60,6 @@ cd /tmp && tar -xzvf vmtools.tar.gz
 /tmp/vmware-tools-distrib/vmware-install.pl
 cd ~
 
-## cloud-init
-yum install -y cloud-init
-systemctl disable cloud-init-local cloud-init cloud-config cloud-final
-sed -i 's/disable_root: 1/disable_root: 0/g' /etc/cloud/cloud.cfg
-sed -i 's/ssh_pwauth:   0/ssh_pwauth:   1/g' /etc/cloud/cloud.cfg
-sed -i '/disable_vmware_customization: false/d' /etc/cloud/cloud.cfg
-echo 'network: {config: disabled}' > /etc/cloud/cloud.cfg.d/99_network_disabled.cfg
 
 # vra-init
 ## from base64 encoded; check "https://github.com/vmware-cmbu-seak/aria-automation/tree/main/images"
