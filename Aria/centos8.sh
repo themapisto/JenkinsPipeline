@@ -6,7 +6,7 @@
 
 # ip setting 
 # /etc/sysconfig/network-script/ifcfg-ens192
-# /etc/resolv.conf - nameserver 등록 / ubuntu는 네임서버 netplan에서 설정됨
+# /etc/resolv.conf - nameserver 등록 / ubuntu는 네임서버 netplan에서 설정됨 / cent8은 내장됨
 # yum update
 # centos는 openssh-server 내장 / ubuntu는 설치
 
@@ -16,7 +16,7 @@ NTP=""						# set your ntp server
 
 # optional
 SWAP_OFF=true				# set swap fs off
-REPO_PATH=""				# set your repository
+REPO=""				# set your repository
 REPO_UPGRADE=true			# trigger upgrade task
 SSL_PUB_KEY=""				# set your master public ssh key
 TIME_ZONE="Asia/Seoul"		# set your timezone
