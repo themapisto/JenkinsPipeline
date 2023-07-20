@@ -2,6 +2,11 @@
 # must be run as root
 # must be run with image "ubuntu-20.04.X-live-server-amd64.iso"
 # must be confirmed script sequence before running
+# ip setting 
+# /etc/sysconfig/network-script/ifcfg-ens192
+# /etc/resolv.conf - nameserver 등록 / ubuntu는 네임서버 netplan에서 설정됨
+# yum update
+# centos는 openssh-server 내장 / ubuntu는 설치
 
 # required
 DNS=""						# set your dns server
@@ -10,7 +15,7 @@ NTP=""						# set your ntp server
 # optional
 SWAP_OFF=true				# set swap fs off
 SNAP_OFF=true				# set snap fs off
-REPO_PATH=""				# set your repository
+REPO_PATH="http://us.archive.ubuntu.com"				# set your repository
 REPO_UPGRADE=true			# trigger upgrade task
 SSL_PUB_KEY=""				# set your master public ssh key
 TIME_ZONE="Asia/Seoul"		# set your timezone
@@ -89,6 +94,8 @@ cd ~
 ## cloud-init
 apt install -y cloud-init
 systemctl disable cloud-init-local cloud-init cloud-config cloud-final
+
+# systemctl enable cloud-init-local cloud-init cloud-config cloud-final
 sed -i 's/disable_root: true/disable_root: false/g' /etc/cloud/cloud.cfg
 sed -i 's/preserve_hostname: false/preserve_hostname: true/g' /etc/cloud/cloud.cfg
 sed -i '/   package_mirrors:/,/   ssh_svcname: ssh/d' /etc/cloud/cloud.cfg

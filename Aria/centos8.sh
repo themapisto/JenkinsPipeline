@@ -4,6 +4,12 @@
 # must be prepared /etc/selinux/config > SELINUX=disabled > reboot
 # must be confirmed script sequence before running
 
+# ip setting 
+# /etc/sysconfig/network-script/ifcfg-ens192
+# /etc/resolv.conf - nameserver 등록 / ubuntu는 네임서버 netplan에서 설정됨
+# yum update
+# centos는 openssh-server 내장 / ubuntu는 설치
+
 # required
 DNS=""						# set your dns server
 NTP=""						# set your ntp server
