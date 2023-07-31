@@ -83,3 +83,10 @@ resources:
           - systemctl start httpd
           - systemctl stop firewalld
 
+
+## mzc@DGB-BMP-VM-JENKINS-000740:~$ sudo rm /var/lib/apt/lists/lock
+## mzc@DGB-BMP-VM-JENKINS-000740:~$ sudo rm /var/cache/apt/archives/lock
+## mzc@DGB-BMP-VM-JENKINS-000740:~$ sudo rm /var/lib/dpkg/lock*
+## mzc@DGB-BMP-VM-JENKINS-000740:~$ sudo dpkg --configure -a
+## mzc@DGB-BMP-VM-JENKINS-000740:~$ sudo apt update
+##
