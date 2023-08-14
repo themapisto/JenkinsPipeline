@@ -89,4 +89,4 @@ resources:
 ## mzc@DGB-BMP-VM-JENKINS-000740:~$ sudo rm /var/lib/dpkg/lock*
 ## mzc@DGB-BMP-VM-JENKINS-000740:~$ sudo dpkg --configure -a
 ## mzc@DGB-BMP-VM-JENKINS-000740:~$ sudo apt update
-##
+## sudo apt install -y apache2
