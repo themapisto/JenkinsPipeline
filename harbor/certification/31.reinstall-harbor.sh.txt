@@ -1,0 +1,4 @@
+sudo docker-compose down
+# update crt, key file location in harbor.yml
+sudo ./prepare
+sudo ./install.sh
