@@ -1,8 +1,16 @@
+# vcenter 디스크 추가 
+# 재부팅
+# lsblk
+
+
+
+
+
 # fdisk -l
 ## fdisk 로 파티션 만들기 
 
 fdisk -l
-fdisk /dev/sda3
+fdisk /dev/sda
 n
 3
 default
