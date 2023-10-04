@@ -18,7 +18,6 @@ NTP=""						# set your ntp server
 # optional
 SWAP_OFF=true				# set swap fs off
 SNAP_OFF=true				# set snap fs off
-REPO_PATH="http://us.archive.ubuntu.com"				# set your repository
 REPO_UPGRADE=true			# trigger upgrade task
 SSL_PUB_KEY=""				# set your master public ssh key
 TIME_ZONE="Asia/Seoul"		# set your timezone
