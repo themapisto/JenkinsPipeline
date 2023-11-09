@@ -4,7 +4,7 @@
 # must be confirmed script sequence before running
 
 # ip setting 
-# /etc/sysconfig/network-script/ifcfg-ens192
+# /etc/netplan/01-network-manager-all.yaml
 # /etc/resolv.conf - nameserver 등록 / ubuntu는 네임서버 netplan에서 설정됨
 # yum update / apt update
 # centos는 openssh-server 내장 / ubuntu는 설치
