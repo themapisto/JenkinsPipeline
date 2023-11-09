@@ -9,8 +9,9 @@
 # yum update / apt update
 # centos는 openssh-server 내장 / ubuntu는 설치
 
-# required
+# ssh 이제 붙을수 있음 
 # vmware tools 설치 
+# cloud-init 설치
 
 DNS=""						# set your dns server
 NTP=""						# set your ntp server
