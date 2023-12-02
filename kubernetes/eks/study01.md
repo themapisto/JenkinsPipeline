@@ -1,3 +1,5 @@
+curl -O https://s3.ap-northeast-2.amazonaws.com/cloudformation.cloudneta.net/K8S/eks-oneclick-new.yaml
+
 # oidc provider 
 CLUSTER_NAME="myeks"
 eksctl utils associate-iam-oidc-provider --cluster ${CLUSTER_NAME} --approve
