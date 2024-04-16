@@ -4,7 +4,7 @@ node {
 }
  stage('Ready'){
         sh "echo 'Ready to build'"
-        mvnHome = tool 'Maven 3.8.6'
+        mvnHome = tool 'mvnHome'
     }
 
     // mvn 빌드로 jar파일을 생성하는 stage
