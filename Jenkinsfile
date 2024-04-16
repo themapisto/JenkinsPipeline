@@ -11,7 +11,7 @@ node {
     stage('Build'){
         sh "echo 'Build Spring Boot Jar'"
         sh "pwd"
-        sh "'${mvnHome}/bin/mvn' -f demo/ clean package"
+        sh "cd demo && mvn clean package"
     }
   stage('========== Build image ==========') {
     app = docker.build("koomzc/${env.IMAGE_NAME}")
