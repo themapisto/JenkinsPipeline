@@ -13,10 +13,10 @@ node {
         sh "'${mvnHome}/bin/mvn' clean package"
     }
   stage('========== Build image ==========') {
-    app = docker.build("tanzu/${env.IMAGE_NAME}")
+    app = docker.build("koomzc/${env.IMAGE_NAME}")
 }
   stage('========== Push image ==========') {
-    docker.withRegistry('https://harbor.aikoo.net', 'harbor') {
+    docker.withRegistry('https://harbor.taskoo.net', 'Harbor') {
       app.push("${env.BUILD_NUMBER}")
       app.push("latest")
 }
